@@ -32,7 +32,8 @@ public class SecurityConfig {
                     .authenticationProviders(providers -> providers.forEach(provider -> {
                         if (provider instanceof OidcClientRegistrationAuthenticationProvider clientRegistrationProvider) {
                             clientRegistrationProvider.setRegisteredClientConverter(registeredClientConverter);
-//                            clientRegistrationProvider.setClientRegistrationConverter(oidcClientRegistrationConverter);
+                            // An attempt to fix the problem
+                            // clientRegistrationProvider.setClientRegistrationConverter(oidcClientRegistrationConverter);
                         }
                     }))
             ));
