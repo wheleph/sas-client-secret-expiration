@@ -1,0 +1,19 @@
+### Generate access token
+POST http://localhost:8080/oauth2/token
+Authorization: Basic Y2xpZW50OnNlY3JldA==
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=client_credentials&scope=client.create
+
+### Dynamically register a client
+POST http://localhost:8080/connect/register
+Authorization: Bearer eyJraWQiOiI4YmRiMjcwMS1hMzk1LTQ3N2UtYTA3YS1mNzlkZTA5NWNkOWUiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjbGllbnQiLCJhdWQiOiJjbGllbnQiLCJuYmYiOjE3NTMwMjc4NzQsInNjb3BlIjpbImNsaWVudC5jcmVhdGUiXSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwIiwiZXhwIjoxNzUzMDI4MTc0LCJpYXQiOjE3NTMwMjc4NzQsImp0aSI6IjRlOTkxYWEzLTIwNWUtNDA2My1hZWU5LWVmMjQ0OTNmMWE4MyJ9.Fxx4ZX72an1dQHPU_2WZ16cRs1yYpaVamCNVPUw-MiVF4JoWAWmNSDojRVzBxMUDNZlmouiA-3XABE6mHKMv_9jvv22wEdohFTH_eG0C9jymLEOqM9WNyPdYRYR1zusnC4SJnKZt41evrs7VsnnL5oWduCYkGufKT_z6ZMEjpimztHvqKPwo8WBdL-Ciq4mgxB6570uvk6f30Nvk_77iGRRox8hdFadmCbfmZ23sgv0nvhnMYnbkWAUrSGhWdm_YPI6qkzCP17RHoEVkXjy5qF8El4kTwK7agWA4UGU1sOZLyxy2w6mbPuFEVcCDtt3YB3Z9WjFtpgTCcMoFhFNFJQ
+Content-Type: application/json
+
+{
+  "redirect_uris": ["https://example.com"],
+  "client_name": "test_dynamic_client",
+  "grant_types": ["client_credentials"],
+  "token_endpoint_auth_method": "client_secret_basic",
+  "scope": "foo,bar"
+}
